@@ -1,0 +1,16 @@
+[req]
+req_extensions = v3_req
+distinguished_name = req_distinguished_name
+
+[v3_req]
+2.5.4.41 = ASN1:UTF8String:#lianyz.hq1.yy#信息中心#信息中心
+keyUsage = digitalSignature, keyEncipherment
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = 127.0.0.1
+DNS.2 = 127.0.0.2
+IP.1  = 127.0.0.3 
+
+[req_distinguished_name]
+

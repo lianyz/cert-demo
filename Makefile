@@ -16,19 +16,20 @@ genpub:
 # 创建证书CSR请求，签名哈希算法使用md5
 .PHONY: gencsr
 gencsr:
-	openssl req -new -key fd.key -passin pass:12345678 -out fd.csr -md5 \
-	-subj "/C=CN/ST=BJ/L=BJ/O=YY/OU=XXZX/CN=lianyz.hq1.yy/emailAddress=lianyz@email.cn"
+	openssl req -new -key fd.key -passin pass:12345678 -out fd.csr -config config.cnf -md5 \
+	-subj "/C=CN/ST=BJ/L=BJ/O=YY/OU=XXZX/CN=lianyz/emailAddress=lianyz@email.cn"
 
 # 生成证书
 .PHONY: gencrt
 gencrt:
-	openssl x509 -req -days 36500 -in fd.csr -signkey fd.key -passin pass:12345678 -md5 -out fd.crt
+	openssl x509 -req -days 36500 -in fd.csr -signkey fd.key -passin pass:12345678 -md5 -out fd.crt \
+	-extfile config.cnf -extensions v3_req
 
 # 查看证书
 .PHONY: print
 print:
 	@echo "\nPrint Private Key:\n"
-	openssl rsa -in fd.key -noout -text 
+	openssl rsa -in fd.key -noout -text -passin pass:12345678
 
 	@echo "\nPrint Certificate Rqeust:\n"
 	openssl req -in fd.csr -noout -text

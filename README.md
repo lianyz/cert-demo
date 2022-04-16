@@ -9,3 +9,5 @@
 [GENERATE AN OPENSSL CERTIFICATE REQUEST WITH SHA256 SIGNATURE](https://itigloo.com/security/generate-an-openssl-certificate-request-with-sha-256-signature/).
 
 [如何使用openssl生成证书及签名](https://www.jianshu.com/p/7d940d7a07d9).
+
+[v3](https://superuser.com/questions/947061/openssl-unable-to-find-distinguished-name-in-config).
