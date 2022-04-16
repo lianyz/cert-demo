@@ -1,11 +1,19 @@
 [req]
-req_extensions = v3_req
+req_extensions = req_ext
 distinguished_name = req_distinguished_name
 
-[v3_req]
-2.5.4.41 = ASN1:UTF8String:#lianyz.hq1.yy#信息中心#信息中心
+[req_ext]
+2.5.4.41 = ASN1:SEQUENCE:seq_sect1
+2.5.4.44 = ASN1:SEQUENCE:seq_sect2
 keyUsage = digitalSignature, keyEncipherment
-subjectAltName = @alt_names
+
+[seq_sect1]
+field1 = UTF8:yy.hq1.lianyz
+field2 = UTF8:软件中心
+field3 = UTF8:软件中心
+
+[seq_sect2]
+field1 = UTF8:普通
 
 [alt_names]
 DNS.1 = 127.0.0.1
@@ -13,4 +21,22 @@ DNS.2 = 127.0.0.2
 IP.1  = 127.0.0.3 
 
 [req_distinguished_name]
+countryName                     = Country Name (2 letter code)
+countryName_min                 = 2
+countryName_max                 = 2
+countryName_default             = CN
+stateOrProvinceName             = State or Province Name (full name)
+stateOrProvinceName_default     = BJ
+localityName                    = Locality Name (eg, city)
+localityName_default            = FT
+organizationName                = Organization Name (eg, company)
+organizationName_default        = YY
+organizationalUnitName          = Organizational Unit Name (eg, section)
+organizationalUnitName_default  = XXZX
+commonName                      = Common Name (eg, server FQDN or YOUR name)
+commonName_max                  = 64
+commonName_default              = yy.hq1.lianyz
+emailAddress                    = Email Address (eg, admin@example.com)
+emailAddress_max                = 64
+emailAddress_default            = lianyz@email.cn
 
